@@ -24,7 +24,7 @@ class CREPState:
     @property
     def gamma(self) -> float:
         """Γ = (C·R·E·P)^(1/4)"""
-        return (self.C * self.R * self.E * self.P) ** 0.25
+        return float((self.C * self.R * self.E * self.P) ** 0.25)
 
     def __post_init__(self) -> None:
         for name, val in [("C", self.C), ("R", self.R), ("E", self.E), ("P", self.P)]:

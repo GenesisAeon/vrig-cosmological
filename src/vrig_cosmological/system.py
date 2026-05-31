@@ -19,7 +19,7 @@ from vrig_cosmological.constants import (
 from vrig_cosmological.crep_coupling import CREPCoupling
 from vrig_cosmological.falsification import FalsificationTests
 from vrig_cosmological.information_geometry import UTACState
-from vrig_cosmological.spike_detector import VRIGSpikeDetector
+from vrig_cosmological.spike_detector import SpikeEvent, VRIGSpikeDetector
 from vrig_cosmological.vrig_calculator import VRIGCalculator
 
 
@@ -50,13 +50,13 @@ class VRIGCosmological:
         self._coupling = CREPCoupling(v_rig_km_s=V_RIG_KM_S)
         self._detector = VRIGSpikeDetector(threshold_normalised=spike_threshold)
         self._last_states: list[UTACState] = []
-        self._last_spikes: list = []
+        self._last_spikes: list[SpikeEvent] = []
 
     # ------------------------------------------------------------------
     # Diamond interface
     # ------------------------------------------------------------------
 
-    def run_cycle(self, duration_years: float = 83.0) -> dict:
+    def run_cycle(self, duration_years: float = 83.0) -> dict[str, object]:
         """Run the full v_RIG analysis cycle.
 
         Generates synthetic ERA5-like UTAC parameter trajectory,
@@ -92,7 +92,7 @@ class VRIGCosmological:
             "duration_years": duration_years,
         }
 
-    def get_crep_state(self) -> dict:
+    def get_crep_state(self) -> dict[str, object]:
         """Return current CREP state derived from v_RIG framework."""
         return {
             "Gamma": 0.251,  # v_RIG framework maps to AMOC/Neural scale
@@ -104,14 +104,14 @@ class VRIGCosmological:
             "scale": "cosmological",
         }
 
-    def get_utac_state(self) -> dict:
+    def get_utac_state(self) -> dict[str, object]:
         """Return UTAC parameter state at the end of last run_cycle."""
         if not self._last_states:
             return {"r": 0.3, "K": 1.0, "sigma": 2.2, "t": self._start_year}
         last = self._last_states[-1]
         return {"r": last.r, "K": last.K, "sigma": last.sigma, "t": last.t}
 
-    def get_phase_events(self) -> list:
+    def get_phase_events(self) -> list[dict[str, object]]:
         """Return list of phase events (v_RIG spike timestamps)."""
         return [
             {
@@ -123,7 +123,7 @@ class VRIGCosmological:
             for s in self._last_spikes
         ]
 
-    def to_zenodo_record(self) -> dict:
+    def to_zenodo_record(self) -> dict[str, object]:
         """Return metadata dict suitable for Zenodo deposition."""
         vrig = self._calc.compute()
         return {
