@@ -1,0 +1,33 @@
+# CODATA 2018 fundamental constants relevant to v_RIG
+# Source: NIST CODATA 2018 (https://physics.nist.gov/cuu/Constants/)
+
+fine_structure_constant:
+  symbol: alpha
+  value: 7.2973525693e-3          # = 1/137.035999084
+  inverse: 137.035999084
+  relative_uncertainty: 1.5e-10
+  year: 2018
+  reference: "CODATA 2018, NIST"
+
+speed_of_light:
+  symbol: c
+  value_m_s: 299792458            # exact by SI definition
+  value_km_s: 299792.458
+  exact: true
+  reference: "SI definition 2019"
+
+golden_ratio:
+  symbol: Phi
+  value: 1.6180339887498948482
+  exact: true                      # algebraic number: (1+sqrt(5))/2
+  reference: "exact algebraic"
+
+# Derived v_RIG value
+v_RIG:
+  formula: "c / (alpha^{-1} * Phi)"
+  value_km_s: 1352.118             # computed at runtime
+  uncertainty_km_s: 0.010
+  interpretation: >
+    Characteristic information-geometric velocity on the UTAC parameter
+    manifold, derived from fundamental constants alpha and Phi.
+    Prediction: appears as scale in peculiar-velocity surveys.
