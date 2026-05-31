@@ -10,7 +10,6 @@ from __future__ import annotations
 from dataclasses import dataclass
 
 import numpy as np
-from numpy.typing import NDArray
 
 from vrig_cosmological.constants import V_RIG_KM_S
 from vrig_cosmological.information_geometry import (
@@ -79,7 +78,7 @@ class VRIGSpikeDetector:
         spikes: list[SpikeEvent] = []
         last_t = -np.inf
 
-        for t, sp in zip(times, speeds):
+        for t, sp in zip(times, speeds, strict=False):
             if sp > self._threshold and (t - last_t) >= self._min_gap:
                 spikes.append(
                     SpikeEvent(

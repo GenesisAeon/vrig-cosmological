@@ -12,8 +12,7 @@ from dataclasses import dataclass
 import numpy as np
 from numpy.typing import NDArray
 
-from vrig_cosmological.constants import V_CMB_DIPOLE_KM_S, V_RIG_KM_S
-
+from vrig_cosmological.constants import V_RIG_KM_S
 
 # Reference peculiar velocity scales (km/s), literature values
 REFERENCE_SCALES: dict[str, float] = {

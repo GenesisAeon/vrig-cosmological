@@ -8,7 +8,7 @@ geometric interpretation, ERA5 spike detection, and cosmological survey
 comparisons.
 """
 
-from vrig_cosmological.constants import ALPHA, PHI, V_RIG_KM_S, C_KM_S
+from vrig_cosmological.constants import ALPHA, C_KM_S, PHI, V_RIG_KM_S
 from vrig_cosmological.system import VRIGCosmological
 from vrig_cosmological.vrig_calculator import VRIGCalculator, compute_vrig
 

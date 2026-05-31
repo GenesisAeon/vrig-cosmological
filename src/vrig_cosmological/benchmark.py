@@ -7,10 +7,9 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
-from vrig_cosmological.constants import ALPHA, ALPHA_UNCERTAINTY, PHI, V_CMB_DIPOLE_KM_S, V_RIG_KM_S
+from vrig_cosmological.constants import ALPHA, PHI
 from vrig_cosmological.falsification import FalsificationTests
 from vrig_cosmological.vrig_calculator import VRIGCalculator
-
 
 VRIG_TARGETS: dict[str, tuple[float, float | None]] = {
     "v_rig_km_s":              (1352.07,  0.05),

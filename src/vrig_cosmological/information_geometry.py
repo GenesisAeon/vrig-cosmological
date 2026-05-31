@@ -8,7 +8,7 @@ distributions. The geodesic speed in this metric gives v_RIG(t).
 from __future__ import annotations
 
 import math
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 
 import numpy as np
 from numpy.typing import NDArray
@@ -41,7 +41,9 @@ class FisherRaoMetric:
         v(t) = √(g_ij · θ̇ⁱ · θ̇ʲ)
     """
 
-    def __init__(self, scale_r: float = 1.0, scale_K: float = 1.0, scale_sigma: float = 1.0) -> None:
+    def __init__(
+        self, scale_r: float = 1.0, scale_K: float = 1.0, scale_sigma: float = 1.0
+    ) -> None:
         self._sr = scale_r
         self._sK = scale_K
         self._ss = scale_sigma

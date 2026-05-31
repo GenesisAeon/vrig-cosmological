@@ -7,7 +7,6 @@ Fisher-Rao speed of moving through the spectrum is v_RIG.
 
 from __future__ import annotations
 
-import math
 from dataclasses import dataclass
 
 from vrig_cosmological.constants import ALPHA, PHI, V_RIG_KM_S

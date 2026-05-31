@@ -8,7 +8,6 @@ Implements the standard GenesisAeon Diamond interface:
 from __future__ import annotations
 
 import math
-from dataclasses import asdict, dataclass
 
 from vrig_cosmological.benchmark import VRIGBenchmark
 from vrig_cosmological.constants import (

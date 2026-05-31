@@ -1,18 +1,22 @@
 """Tests for vrig-cosmological Package 31."""
 
 import math
+
 import pytest
 
 from vrig_cosmological import V_RIG_KM_S, VRIGCalculator, compute_vrig
-from vrig_cosmological.constants import ALPHA, ALPHA_UNCERTAINTY, C_KM_S, PHI
+from vrig_cosmological.benchmark import VRIGBenchmark
+from vrig_cosmological.constants import ALPHA, C_KM_S, PHI
 from vrig_cosmological.crep_coupling import CREPCoupling, CREPState
 from vrig_cosmological.falsification import FalsificationTests
-from vrig_cosmological.benchmark import VRIGBenchmark
-from vrig_cosmological.information_geometry import FisherRaoMetric, UTACState, FisherRaoVelocityTimeSeries
+from vrig_cosmological.information_geometry import (
+    FisherRaoMetric,
+    FisherRaoVelocityTimeSeries,
+    UTACState,
+)
 from vrig_cosmological.peculiar_velocity import PeculiarVelocityAnalyzer
 from vrig_cosmological.spike_detector import VRIGSpikeDetector
 from vrig_cosmological.system import VRIGCosmological
-
 
 # ─────────────────────────────────────────────────────────────────
 # Constants
