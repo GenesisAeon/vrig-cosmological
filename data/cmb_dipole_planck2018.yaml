@@ -1,0 +1,35 @@
+# CMB dipole parameters — Planck 2018 results
+# Reference: Planck Collaboration (2020), A&A 641, A1
+
+cmb_dipole:
+  v_km_s: 369.82
+  uncertainty_km_s: 0.11
+  direction_l_deg: 264.021
+  direction_b_deg: 48.253
+  reference: "Planck 2018 Results I (arXiv:1807.06205)"
+
+# Comparison scales (km/s)
+peculiar_velocity_scales:
+  Virgo_infall:        250.0    # local infall toward Virgo cluster
+  Local_Group_wrt_CMB: 627.0   # LG bulk flow wrt CMB frame
+  Great_Attractor:     600.0   # Centaurus / Norma
+  Shapley_infall:      800.0   # Shapley supercluster
+  v_RIG_prediction:    1352.12  # GenesisAeon Package 31 prediction
+  CF4_bulk_100Mpc:     180.0   # CosmicFlows-4, Tully+ 2023
+
+# Falsification target
+falsification:
+  prediction: >
+    v_RIG ≈ 1352 km/s should appear as a characteristic scale
+    in galaxy peculiar-velocity surveys (2MRS, CF4, SDSS).
+  test: >
+    Count galaxies with |v_pec| in [1252, 1452] km/s vs. control bin.
+    Excess ratio > 1 supports the prediction.
+  surveys:
+    - name: 2MRS
+      reference: "Erdoğdu et al. 2006, MNRAS 368:1515"
+      url: https://www.roe.ac.uk/ifa/2MRS/
+    - name: CosmicFlows-4
+      reference: "Tully et al. 2023, ApJ 944:94"
+    - name: SDSS peculiar velocities
+      reference: "various"
