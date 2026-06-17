@@ -1,6 +1,6 @@
 [project]
 name = "vrig-cosmological"
-version = "0.1.0"
+version = "1.0.0"
 description = "v_RIG cosmological velocity scale: c/(alpha_inv*Phi) approx 1352 km/s -- GenesisAeon Package 31"
 readme = "README.md"
 license = { text = "MIT" }

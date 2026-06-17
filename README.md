@@ -1,85 +1,58 @@
-# diamond-setup
+# vrig-cosmological
 
-**Universal Python project scaffold** — generate professional, CI-ready skeletons in seconds.
+**v_RIG cosmological velocity scale** — `v_RIG = c / (α⁻¹ · Φ) ≈ 1352.12 km/s`,
+GenesisAeon Package 31.
 
-[![CI](https://github.com/GenesisAeon/diamond-setup/actions/workflows/ci.yml/badge.svg)](https://github.com/GenesisAeon/diamond-setup/actions/workflows/ci.yml)
+[![CI](https://github.com/GenesisAeon/vrig-cosmological/actions/workflows/ci.yml/badge.svg)](https://github.com/GenesisAeon/vrig-cosmological/actions/workflows/ci.yml)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-blue)](https://www.python.org)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-No cookiecutter, no Jinja2, no magic. Just a clean CLI that produces a fully working project — `uv sync`, `pytest`, ruff, pre-commit and CI all wired up from second one.
+A falsifiable cosmological velocity scale derived from the fine-structure
+constant α and the golden ratio Φ. Implements the Fisher-Rao
+information-geometric interpretation, ERA5-style spike detection, and
+cosmological survey comparisons.
 
----
-
-## Install
+## Installation
 
 ```bash
-pip install diamond-setup
-# or
-uv tool install diamond-setup
+pip install vrig-cosmological
 ```
 
 ## Usage
 
-```bash
-# New project with the minimal template (default)
-diamond scaffold my-lib
+```python
+from vrig_cosmological import VRIGCosmological
 
-# GenesisAeon preset (adds domains.yaml + entropy-table bridge)
-diamond scaffold my-physics-tool --template genesis --author "Ada Lovelace"
+system = VRIGCosmological()
+result = system.run_cycle(duration_years=83.0)
 
-# Preview what would be generated (no files written)
-diamond scaffold my-lib --dry-run
-
-# See all templates
-diamond list-templates
-
-# Validate any project directory
-diamond validate path/to/my-project
-diamond validate          # validates the current directory
+system.v_rig_value()   # 1352.118... (km/s)
+system.spike_times()   # years at which Fisher-Rao speed exceeded v_RIG
 ```
 
-## What you get
+The `VRIGCosmological` class implements the GenesisAeon Diamond Interface:
 
-Running `diamond scaffold my-lib` produces:
-
-```
-my-lib/
-├── src/
-│   └── my_lib/
-│       └── __init__.py       # __version__ = "0.1.0"
-├── tests/
-│   ├── __init__.py
-│   └── test_main.py
-├── .github/
-│   └── workflows/
-│       └── ci.yml            # matrix: 3.11 + 3.12
-├── pyproject.toml            # hatchling, ruff, pytest configured
-├── README.md
-├── AGENT.md                  # GenesisAeon release & metadata rules
-├── .gitignore
-└── .pre-commit-config.yaml   # ruff + standard hooks
+```python
+system.get_crep_state()      # CREP (Gamma, C, R, E, P) tensor state
+system.get_utac_state()      # UTAC (r, K, sigma, t) parameter state
+system.get_phase_events()    # list of v_RIG spike events
+system.to_zenodo_record()    # Zenodo-ready metadata dict
 ```
 
-Then just:
+## Role in the GenesisAeon Ecosystem
 
-```bash
-cd my-lib
-uv sync --dev
-pre-commit install
-uv run pytest
-```
+This package is **P31** in the GenesisAeon ecosystem, covering the
+*information geometry / cosmological velocity* domain: it derives and
+falsifies the `v_RIG` velocity scale via Fisher-Rao information geometry
+over UTAC parameter trajectories, and exposes that result through the
+standard GenesisAeon Diamond Interface so it can be composed with other
+ecosystem packages (orchestration, visualization, governance).
 
-## Templates
+## Citation
 
-| Template | Description |
-|----------|-------------|
-| `minimal` | Clean Python package for everyone |
-| `genesis` | Adds `domains.yaml` + entropy-table bridge (GenesisAeon preset) |
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.PLACEHOLDER.svg)](https://doi.org/10.5281/zenodo.PLACEHOLDER)
 
-## Extending
-
-Adding a new template is one Python file. See [docs/templates.md](docs/templates.md).
-
----
-
-Built with [uv](https://docs.astral.sh/uv/) · [Typer](https://typer.tiangolo.com/) · [Rich](https://rich.readthedocs.io/)
+DOI will be assigned automatically on first GitHub Release once
+Zenodo–GitHub integration is enabled for this repo. An existing
+ecosystem-level DOI is also referenced in `pyproject.toml`
+(`10.5281/zenodo.17472834`).
