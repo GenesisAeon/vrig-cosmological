@@ -1,0 +1,33 @@
+{
+  "title": "vrig-cosmological — P31: v_RIG cosmological velocity scale: c/(alpha_inv*Phi) approx 1352 km/s",
+  "description": "<p>v_RIG cosmological velocity scale: c/(alpha_inv*Phi) approx 1352 km/s -- GenesisAeon Package 31</p><p>Part of the <strong>GenesisAeon</strong> ecosystem (P31, domain: information geometry / cosmological velocity).</p><p>See <a href=\"https://github.com/GenesisAeon/vrig-cosmological\">github.com/GenesisAeon/vrig-cosmological</a> for source, documentation, and reproducibility notebooks.</p>",
+  "creators": [
+    {
+      "name": "Römer, Johann",
+      "affiliation": "Independent Researcher / MOR Research Collective"
+    }
+  ],
+  "license": "MIT",
+  "upload_type": "software",
+  "access_right": "open",
+  "keywords": [
+    "GenesisAeon",
+    "P31",
+    "information geometry / cosmological velocity",
+    "UTAC",
+    "CREP",
+    "open science"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "10.5281/zenodo.19645351",
+      "relation": "isPartOf",
+      "resource_type": "publication-article",
+      "scheme": "doi"
+    }
+  ],
+  "version": "1.0.0",
+  "communities": [
+    { "identifier": "genesisaeon" }
+  ]
+}
