@@ -1,85 +1,79 @@
-# diamond-setup
+# vrig-cosmological
 
-**Universal Python project scaffold** — generate professional, CI-ready skeletons in seconds.
+**v_RIG cosmological velocity scale** — `v_RIG = c / (α⁻¹ · Φ) ≈ 1352 km/s`
 
-[![CI](https://github.com/GenesisAeon/diamond-setup/actions/workflows/ci.yml/badge.svg)](https://github.com/GenesisAeon/diamond-setup/actions/workflows/ci.yml)
+[![CI](https://github.com/GenesisAeon/vrig-cosmological/actions/workflows/ci.yml/badge.svg)](https://github.com/GenesisAeon/vrig-cosmological/actions/workflows/ci.yml)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-blue)](https://www.python.org)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![License: GPLv3-or-later](https://img.shields.io/badge/code-GPLv3--or--later-blue.svg)](LICENSE-CODE)
+[![Docs License: CC BY 4.0](https://img.shields.io/badge/docs-CC%20BY%204.0-lightgrey.svg)](LICENSE-DOCS)
 
-No cookiecutter, no Jinja2, no magic. Just a clean CLI that produces a fully working project — `uv sync`, `pytest`, ruff, pre-commit and CI all wired up from second one.
+A falsifiable cosmological velocity scale derived from the fine-structure
+constant α and the golden ratio Φ. Implements the Fisher-Rao information-
+geometric interpretation, ERA5-style spike detection, and cosmological
+survey comparisons. GenesisAeon Package 31.
 
----
-
-## Install
+## Installation
 
 ```bash
-pip install diamond-setup
-# or
-uv tool install diamond-setup
+pip install vrig-cosmological
 ```
 
 ## Usage
 
-```bash
-# New project with the minimal template (default)
-diamond scaffold my-lib
+```python
+from vrig_cosmological import VRIGCosmological
 
-# GenesisAeon preset (adds domains.yaml + entropy-table bridge)
-diamond scaffold my-physics-tool --template genesis --author "Ada Lovelace"
+sys = VRIGCosmological()
+result = sys.run_cycle(duration_years=83.0)
 
-# Preview what would be generated (no files written)
-diamond scaffold my-lib --dry-run
-
-# See all templates
-diamond list-templates
-
-# Validate any project directory
-diamond validate path/to/my-project
-diamond validate          # validates the current directory
+print(sys.v_rig_value())   # ≈ 1352.118... km/s
+print(sys.spike_times())   # detected v_RIG spike years
+print(sys.get_crep_state())
+print(sys.to_zenodo_record())
 ```
 
-## What you get
+Or use the calculator directly:
 
-Running `diamond scaffold my-lib` produces:
+```python
+from vrig_cosmological import compute_vrig
 
-```
-my-lib/
-├── src/
-│   └── my_lib/
-│       └── __init__.py       # __version__ = "0.1.0"
-├── tests/
-│   ├── __init__.py
-│   └── test_main.py
-├── .github/
-│   └── workflows/
-│       └── ci.yml            # matrix: 3.11 + 3.12
-├── pyproject.toml            # hatchling, ruff, pytest configured
-├── README.md
-├── AGENT.md                  # GenesisAeon release & metadata rules
-├── .gitignore
-└── .pre-commit-config.yaml   # ruff + standard hooks
+result = compute_vrig()
+print(result.v_rig_km_s, result.uncertainty_km_s)
 ```
 
-Then just:
+A CLI is also available — see [docs/cli.md](docs/cli.md).
+
+## Role in the GenesisAeon Ecosystem
+
+`vrig-cosmological` is **P31** in the GenesisAeon ecosystem, covering the
+**information geometry / cosmological velocity** domain. It implements the
+standard GenesisAeon Diamond Interface (`run_cycle`, `get_crep_state`,
+`get_utac_state`, `get_phase_events`, `to_zenodo_record`) so it can be
+orchestrated alongside other ecosystem packages (CREP coupling, UTAC
+state tracking, Zenodo-ready records).
+
+## Development
 
 ```bash
-cd my-lib
-uv sync --dev
-pre-commit install
-uv run pytest
+git clone https://github.com/GenesisAeon/vrig-cosmological.git
+cd vrig-cosmological
+pip install -e ".[dev]"
+pytest --cov=src
+ruff check src tests
+mypy src
 ```
 
-## Templates
+## Citation
 
-| Template | Description |
-|----------|-------------|
-| `minimal` | Clean Python package for everyone |
-| `genesis` | Adds `domains.yaml` + entropy-table bridge (GenesisAeon preset) |
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.PLACEHOLDER.svg)](https://doi.org/10.5281/zenodo.PLACEHOLDER)
 
-## Extending
+DOI will be assigned automatically on first GitHub Release once
+Zenodo–GitHub integration is enabled for this repo.
 
-Adding a new template is one Python file. See [docs/templates.md](docs/templates.md).
+## License
 
----
+Dual-licensed:
+- **Code**: [GNU GPLv3-or-later](LICENSE-CODE)
+- **Documentation** (README, `docs/`): [CC BY 4.0](LICENSE-DOCS)
 
-Built with [uv](https://docs.astral.sh/uv/) · [Typer](https://typer.tiangolo.com/) · [Rich](https://rich.readthedocs.io/)
+See [LICENSE](LICENSE) for details.

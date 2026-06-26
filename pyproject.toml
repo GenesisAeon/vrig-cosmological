@@ -1,9 +1,9 @@
 [project]
 name = "vrig-cosmological"
-version = "0.1.0"
+version = "1.0.0"
 description = "v_RIG cosmological velocity scale: c/(alpha_inv*Phi) approx 1352 km/s -- GenesisAeon Package 31"
 readme = "README.md"
-license = { text = "MIT" }
+license = "GPL-3.0-or-later"
 authors = [{ name = "GenesisAeon" }]
 requires-python = ">=3.11"
 keywords = ["cosmology", "v_RIG", "UTAC", "CREP", "Fisher-Rao", "information-geometry",
@@ -11,7 +11,7 @@ keywords = ["cosmology", "v_RIG", "UTAC", "CREP", "Fisher-Rao", "information-geo
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Science/Research",
-    "License :: OSI Approved :: MIT License",
+    "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
