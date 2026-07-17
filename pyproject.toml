@@ -23,6 +23,7 @@ dependencies = [
     "pyyaml>=6.0",
     "typer>=0.12.0",
     "rich>=13.7.0",
+    "diamond-setup>=2.2.0",
 ]
 
 [project.optional-dependencies]
@@ -48,7 +49,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/vrig_cosmological", "src/diamond_setup"]
+packages = ["src/vrig_cosmological"]
 
 [tool.ruff]
 line-length = 100
