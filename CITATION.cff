@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+type: software
+title: "vrig-cosmological"
+version: "1.0.0"
+date-released: "2026-05-31"
+authors:
+  - name: "GenesisAeon"
+repository-code: "https://github.com/GenesisAeon/vrig-cosmological"
+license: GPL-3.0-or-later
+abstract: "v_RIG cosmological velocity scale: c/(alpha_inv*Phi) approx 1352 km/s -- GenesisAeon Package 31"
+keywords:
+  - GenesisAeon
+  - UTAC
+  - CREP
+  - open-science
+  - cosmology
+  - v_RIG
+  - Fisher-Rao
+  - information-geometry
