@@ -30,5 +30,5 @@ ALPHA_PHI_PRODUCT: float = ALPHA / PHI  # ≈ 0.00451 = v_RIG / c
 SIGMA_PHI: float = 1.0 / 16.0
 
 # Package metadata
-ZENODO_DOI: str = "10.5281/zenodo.17472834"
+ZENODO_DOI: str = "10.5281/zenodo.20934822"
 PACKAGE_ID: int = 31

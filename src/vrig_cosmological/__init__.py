@@ -14,7 +14,7 @@ from vrig_cosmological.vrig_calculator import VRIGCalculator, compute_vrig
 
 __version__ = "0.1.0"
 __author__ = "GenesisAeon / Johann Römer"
-__zenodo__ = "10.5281/zenodo.17472834"
+__zenodo__ = "10.5281/zenodo.20934822"
 __package_id__ = 31
 
 __all__ = [

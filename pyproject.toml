@@ -42,7 +42,7 @@ dev = [
 [project.urls]
 Homepage = "https://github.com/GenesisAeon/vrig-cosmological"
 Repository = "https://github.com/GenesisAeon/vrig-cosmological"
-Zenodo = "https://doi.org/10.5281/zenodo.17472834"
+Zenodo = "https://doi.org/10.5281/zenodo.20934822"
 
 [build-system]
 requires = ["hatchling"]
