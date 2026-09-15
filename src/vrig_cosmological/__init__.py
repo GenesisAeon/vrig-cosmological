@@ -12,7 +12,7 @@ from vrig_cosmological.constants import ALPHA, C_KM_S, PHI, V_RIG_KM_S
 from vrig_cosmological.system import VRIGCosmological
 from vrig_cosmological.vrig_calculator import VRIGCalculator, compute_vrig
 
-__version__ = "0.1.0"
+__version__ = "1.0.1"
 __author__ = "GenesisAeon / Johann Römer"
 __zenodo__ = "10.5281/zenodo.20934822"
 __package_id__ = 31
